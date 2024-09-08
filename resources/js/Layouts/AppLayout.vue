@@ -1,6 +1,6 @@
 <script setup>
 import { useLayout } from '@/Layouts/composables/layout';
-import { computed, ref, watch } from 'vue';
+import {computed, onMounted, ref, watch} from 'vue';
 import AppFooter from './AppFooter.vue';
 import AppSidebar from './AppSidebar.vue';
 import AppTopbar from './AppTopbar.vue';
@@ -51,6 +51,13 @@ function isOutsideClicked(event) {
 
     return !(sidebarEl.isSameNode(event.target) || sidebarEl.contains(event.target) || topbarEl.isSameNode(event.target) || topbarEl.contains(event.target));
 }
+
+onMounted(() => {
+    // Todo : remover
+    if (!document.documentElement.classList.contains('app-dark')) {
+        document.documentElement.classList.toggle('app-dark');
+    }
+});
 </script>
 
 <template>

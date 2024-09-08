@@ -1,6 +1,7 @@
 <script setup>
 import { useLayout } from '@/Layouts/composables/layout';
 import AppConfigurator from './AppConfigurator.vue';
+import {Link} from "@inertiajs/vue3";
 
 const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
 </script>
@@ -68,10 +69,10 @@ const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
                         <i class="pi pi-inbox"></i>
                         <span>Messages</span>
                     </button>
-                    <button type="button" class="layout-topbar-action">
+                    <Link :href="route('profile.edit')" type="button" class="layout-topbar-action">
                         <i class="pi pi-user"></i>
                         <span>Profile</span>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
